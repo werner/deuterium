@@ -14,11 +14,7 @@ name = "tests"
 default = ["postgres"]
 
 [dependencies]
-uuid = "*"
 time = "*"
+uuid = "*"
 rustc-serialize = "*"
-
-[dependencies.postgres]
-version = "0.15.2"
-features = ["with-uuid", "with-rustc-serialize", "with-time"]
-optional = true
+postgres = { version = "0.15.2", features = ["with-uuid", "with-rustc-serialize", "with-time"], optional = true }

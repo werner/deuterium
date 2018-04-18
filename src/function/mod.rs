@@ -15,7 +15,7 @@ macro_rules! agg_func {
         }
 
         #[derive(Clone)]
-        pub struct $foo<R, T, E: $foo_arg<R, T>> {
+        pub struct $foo<R : Clone + 'static, T : Clone + 'static, E: $foo_arg<R, T>> {
             pub expression: E,
 
             _marker_r: marker::PhantomData<R>,
