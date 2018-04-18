@@ -19,6 +19,6 @@ time = "*"
 rustc-serialize = "*"
 
 [dependencies.postgres]
-version = "*"
-features = ["uuid", "rustc-serialize", "time"]
+version = "0.15.2"
+features = ["with-uuid", "with-rustc-serialize", "with-time"]
 optional = true
