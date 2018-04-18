@@ -136,6 +136,7 @@ macro_rules! with_clone{
 mod field;
 mod predicate;
 mod select_query;
+#[macro_use]
 mod insert_query;
 
 #[macro_use]

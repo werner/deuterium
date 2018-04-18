@@ -20,14 +20,6 @@ pub trait AsPostgresValue: postgres::types::ToSql + Sized {
     }
 }
 
-macro_rules! to_predicate_for_field {
-    ($f:ty) => (
-        impl ToPredicateValue for $f  {
-            fn to_predicate_value(&self, ctx: &mut super::SqlContext) -> String { self.to_sql(ctx) }
-        }
-    )
-}
-
 impl<T: Clone> ToPredicateValue for field::NamedField<T> {
     fn to_predicate_value(&self, ctx: &mut super::SqlContext) -> String { self.to_sql(ctx) }
 }
