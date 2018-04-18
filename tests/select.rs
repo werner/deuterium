@@ -20,6 +20,9 @@ fn select() {
 
     let query: SelectQuery<(String, bool), LimitMany, ()> = jedi_table.select_2(&name, &side);
     assert_sql!(query, "SELECT name, side FROM jedi;");
+
+    let query: SelectQuery<(), LimitMany, ()> = jedi_table.select(&[&name, &side]);
+    assert_sql!(query, "SELECT name, side FROM jedi;");
 }
 
 #[test]
