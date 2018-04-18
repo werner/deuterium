@@ -57,7 +57,6 @@ pub struct InsertQuery<T, V, M, RT, RL> {
 
 macro_rules! insert {
     ($name:ident, $(($t:ident, $arg:ident)),+) => (
-        // FIXME: Make this public after https://github.com/rust-lang/rust/issues/17635
         pub fn $name<$($t:Clone,)+>(&self, $($arg: &NamedField<$t>,)+) -> InsertQuery<($($t,)+), ($(InsertValue<$t>,)+), M, (), ()> {
             let mut cols = vec![];
             $(cols.push((*$arg).upcast_field());)+

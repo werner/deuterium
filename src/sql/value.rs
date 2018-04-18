@@ -99,7 +99,7 @@ extended_impl!(expression::RawExpression);
 impl<T: ToPredicateValue> ToPredicateValue for Vec<T> {
     fn to_predicate_value(&self, ctx: &mut super::SqlContext) -> String {
         let values: Vec<String> = self.iter().map(|v| v.to_predicate_value(ctx)).collect();
-        values.connect(", ")
+        values.join(", ")
     }
 }
 

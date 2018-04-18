@@ -15,7 +15,7 @@ impl<T, L, M> super::ToSql for delete_query::DeleteQuery<T, L, M> {
             let using = self.get_using().as_ref().unwrap();
             if !using.is_empty() {
                 let tables_str: Vec<String> = using.iter().map(|v| v.as_sql().to_from_sql(ctx)).collect();
-                sql = format!("{} USING {}", sql, tables_str.connect(", "))
+                sql = format!("{} USING {}", sql, tables_str.join(", "))
             }
         }
 
